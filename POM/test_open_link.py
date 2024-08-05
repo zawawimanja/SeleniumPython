@@ -16,3 +16,4 @@ def test_open_yahoo_and_verify_title(driver):
     page = Page(driver)
     page.open_link("https://www.yahoo.com")
     page.verify_title()
+    page.search_on_yahoo('test')

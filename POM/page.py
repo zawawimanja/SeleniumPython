@@ -12,9 +12,11 @@ class Page:
     def open_link(self, url):
         self.driver.get(url)
 
-    def verify_title(self):
-        assert 'Yahoo' in self.driver.title  # Execute the assertion
-
+    def verify_title(self,expected_title):  # Add expected title as parameter
+       actual_title = self.driver.title
+       assert expected_title in actual_title, f"Expected title '{expected_title}', but found '{actual_title}'"
+       print('Result',self.driver.title)
+       
     def search_on_yahoo(self, search_term):
         search_box = self.driver.find_element(By.NAME, 'p')  # Replace with the correct locator
         search_box.clear()

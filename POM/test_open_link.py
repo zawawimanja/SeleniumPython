@@ -11,9 +11,9 @@ def driver():
    
 
 
-def test_open_yahoo_and_verify_title(driver):
+def test_open_google_and_verify_title(driver):
     """Test case using POM and pytest"""
     page = Page(driver)
-    page.open_link("https://www.yahoo.com")
-    page.verify_title("Yahoo")
-    page.search_on_yahoo('test')
+    page.open_link("https://www.google.com")
+    page.verify_title("Google")
+    page.search_on_google('test')

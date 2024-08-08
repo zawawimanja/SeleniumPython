@@ -17,8 +17,8 @@ class Page:
        assert expected_title in actual_title, f"Expected title '{expected_title}', but found '{actual_title}'"
        print('Result',self.driver.title)
        
-    def search_on_yahoo(self, search_term):
-        search_box = self.driver.find_element(By.NAME, 'p')  # Replace with the correct locator
+    def search_on_google(self, search_term):
+        search_box = self.driver.find_element(By.NAME, 'q')  # Replace with the correct locator
         search_box.clear()
         search_box.send_keys(search_term)
         search_box.send_keys(Keys.RETURN)
@@ -29,12 +29,6 @@ class Page:
             WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, "//input[@value='test']"))
             )
-
-            
-            print('Search results verified. Test passed.')
-        except (TimeoutException, NoSuchElementException):
-            print('Search results verification failed. Test failed.')
-        except AssertionError:
-            print('Title check failed. Test failed.')
+            print('Search results verification success. Test pass.')
         except Exception as e:
             print(f'An error occurred: {e}. Test failed.')
